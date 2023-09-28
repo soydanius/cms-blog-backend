@@ -1,8 +1,13 @@
 import express from "express";
-import { getBlogPostsOfCategory } from "../controllers/blogPostsController.js";
+import {
+  getAllBlogPosts,
+  getBlogPostsOfCategory,
+} from "../controllers/blogPostsController.js";
 
 const blogPostsRouter = express.Router();
 
-blogPostsRouter.get("/:category", getBlogPostsOfCategory);
+blogPostsRouter
+  .get("/", getAllBlogPosts)
+  .get("/:category", getBlogPostsOfCategory);
 
 export default blogPostsRouter;
